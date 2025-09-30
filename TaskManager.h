@@ -37,4 +37,11 @@ public:
     }
   }
   void addTasks(const string &newTask) { tasks.push_back({newTask, false}); }
+  void completeTask(int index) {
+    if (index <= 0 || index > tasks.size()) {
+      cout << "Please, choose valid task\n";
+      return;
+    }
+    tasks[index - 1].status = true;
+  }
 };
