@@ -20,7 +20,6 @@ public:
     ifstream file("tasks.txt");
 
     if (!file) {
-      cout << "Error: can't open file!";
       return;
     }
     while (getline(file, line)) {
@@ -59,7 +58,6 @@ public:
     ofstream file("task.txt");
 
     if (!file) {
-      cout << "Error: can't open file!\n";
       return;
     }
     for (auto tk : tasks) {
