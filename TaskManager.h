@@ -36,4 +36,5 @@ public:
       }
     }
   }
+  void addTasks(const string &newTask) { tasks.push_back({newTask, false}); }
 };
