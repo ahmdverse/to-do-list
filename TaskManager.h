@@ -27,4 +27,13 @@ public:
     }
     file.close();
   }
+  void viewTasks() {
+    for (int i = 0; i < tasks.size(); i++) {
+      if (tasks[i].status) {
+        cout << i + 1 << " .[✓] " << tasks[i].task << endl;
+      } else {
+        cout << i + 1 << " .[ ] " << tasks[i].task << endl;
+      }
+    }
+  }
 };
