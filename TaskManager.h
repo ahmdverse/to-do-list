@@ -24,7 +24,10 @@ public:
       return;
     }
     while (getline(file, line)) {
-      tasks.push_back({line, false});
+      size_t delimiterPos = line.find('|');
+      bool isCompleted = (line[0] == '1');
+      string taskDescription = line.substr(delimiterPos + 1);
+      tasks.push_back({taskDescription, isCompleted});
     }
     file.close();
   }
@@ -51,5 +54,17 @@ public:
       return;
     }
     tasks.erase(tasks.begin() + index - 1);
+  }
+  void saveTasks() {
+    ofstream file("task.txt");
+
+    if (!file) {
+      cout << "Error: can't open file!\n";
+      return;
+    }
+    for (auto tk : tasks) {
+      file << tk.status << "|" << tk.task << endl;
+    }
+    file.close();
   }
 };
