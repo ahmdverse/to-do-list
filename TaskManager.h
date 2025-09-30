@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <vector>
 using namespace std;
@@ -43,5 +44,12 @@ public:
       return;
     }
     tasks[index - 1].status = true;
+  }
+  void deleteTask(int index) {
+    if (index <= 0 || index > tasks.size()) {
+      cout << "Please, choose valid task\n";
+      return;
+    }
+    tasks.erase(tasks.begin() + index - 1);
   }
 };
